@@ -367,8 +367,7 @@ static void lim_process_sae_auth_frame(tpAniSirGlobal mac_ctx,
 
 	lim_send_sme_mgmt_frame_ind(mac_ctx, mac_hdr->fc.subType,
 				    (uint8_t *)mac_hdr,
-				    frame_len + sizeof(tSirMacMgmtHdr),
-				    pe_session->smeSessionId,
+				    frame_len + sizeof(tSirMacMgmtHdr), 0,
 				    WMA_GET_RX_CH(rx_pkt_info), pe_session,
 				    WMA_GET_RX_RSSI_NORMALIZED(rx_pkt_info),
 				    rx_flags);
@@ -1593,8 +1592,7 @@ bool lim_process_sae_preauth_frame(tpAniSirGlobal mac, uint8_t *rx_pkt)
 
 	lim_send_sme_mgmt_frame_ind(mac, dot11_hdr->fc.subType,
 				    (uint8_t *)dot11_hdr,
-				    frm_len + sizeof(tSirMacMgmtHdr),
-				    SME_SESSION_ID_ANY,
+				    frm_len + sizeof(tSirMacMgmtHdr), 0,
 				    WMA_GET_RX_CH(rx_pkt), NULL,
 				    WMA_GET_RX_RSSI_NORMALIZED(rx_pkt),
 				    RXMGMT_FLAG_NONE);
